@@ -1,0 +1,254 @@
+<!-- Styles -->
+<style>
+#chartdiv {
+  width: 100%;
+  max-width: 100%;
+  height: 550px;
+}
+</style>
+
+<!-- Resources -->
+<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/hierarchy.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+
+<!-- Chart code -->
+<script>
+am5.ready(function() {
+
+// Create root element
+// https://www.amcharts.com/docs/v5/getting-started/#Root_element
+var root = am5.Root.new("chartdiv");
+
+// Set themes
+// https://www.amcharts.com/docs/v5/concepts/themes/
+root.setThemes([
+  am5themes_Animated.new(root)
+]);
+
+var data = {
+  value: 0,
+  children: [
+    {
+      name: "2024年",
+      children: 
+      [
+        {
+          name: "亞洲地區",
+          value: 6577539
+        },
+        {
+          name: "非洲地區",
+          value: 11540
+        },
+        {
+          name: "美洲地區",
+          value: 784855
+        },
+        {
+          name: "大洋洲地區",
+          value: 131720
+        },
+        {
+          name: "歐洲地區",
+          value: 349981
+        },
+        {
+          name: "其他未列名",
+          value: 2051
+        },
+    ]
+  },
+
+
+  {
+      name: "2023年",
+      children: 
+      [
+        {
+          name: "亞洲地區",
+          value: 5432055
+        },
+        {
+          name: "非洲地區",
+          value: 9354
+        },
+        {
+          name: "美洲地區",
+          value: 639976
+        },
+        {
+          name: "大洋洲地區",
+          value: 104205
+        },
+        {
+          name: "歐洲地區",
+          value: 298986
+        },
+        {
+          name: "其他未列名",
+          value: 2375
+        },
+    ]
+  },
+
+
+{
+      name: "2022年",
+      children: 
+      [
+        {
+          name: "亞洲地區",
+          value: 696792
+        },
+        {
+          name: "非洲地區",
+          value: 3410
+        },
+        {
+          name: "美洲地區",
+          value: 108842
+        },
+        {
+          name: "大洋洲地區",
+          value: 14920
+        },
+        {
+          name: "歐洲地區",
+          value: 65990
+        },
+        {
+          name: "其他未列名",
+          value: 6008
+        },
+    ]
+  },
+
+
+  {
+      name: "2021年",
+      children: 
+      [
+        {
+          name: "亞洲地區",
+          value: 105996
+        },
+        {
+          name: "非洲地區",
+          value: 901
+        },
+        {
+          name: "美洲地區",
+          value: 14642
+        },
+        {
+          name: "大洋洲地區",
+          value: 1358
+        },
+        {
+          name: "歐洲地區",
+          value: 16413
+        },
+        {
+          name: "其他未列名",
+          value: 1169
+        },
+    ]
+  },
+
+
+{
+      name: "2020年",
+      children: 
+      [
+        {
+          name: "亞洲地區",
+          value: 1183987
+        },
+        {
+          name: "非洲地區",
+          value: 2502
+        },
+        {
+          name: "美洲地區",
+          value: 106117
+        },
+        {
+          name: "大洋洲地區",
+          value: 22606
+        },
+        {
+          name: "歐洲地區",
+          value: 59512
+        },
+        {
+          name: "其他未列名",
+          value: 3137
+        },
+    ]
+  },
+
+
+
+
+
+
+
+      
+  ]
+};
+
+
+
+
+
+var zoomableContainer = root.container.children.push(
+  am5.ZoomableContainer.new(root, {
+    width: am5.p100,
+    height: am5.p100,
+    wheelable: true,
+    pinchZoom: true
+  })
+);
+
+var zoomTools = zoomableContainer.children.push(am5.ZoomTools.new(root, {
+  target: zoomableContainer
+}));
+
+// Create series
+// https://www.amcharts.com/docs/v5/charts/hierarchy/#Adding
+var series = zoomableContainer.contents.children.push(am5hierarchy.ForceDirected.new(root, {
+  maskContent:false, //!important with zoomable containers
+  singleBranchOnly: false,
+  downDepth: 2,
+  topDepth: 1,
+  initialDepth: 3,
+  valueField: "value",
+  categoryField: "name",
+  childDataField: "children",
+  idField: "name",
+  linkWithField: "linkWith",
+  manyBodyStrength: -10,
+  centerStrength: 0.8
+}));
+
+series.get("colors").setAll({
+  step: 2
+});
+
+series.links.template.set("strength", 0.5);
+series.labels.template.set("minScale", 0);
+
+series.data.setAll([data]);
+
+series.set("selectedDataItem", series.dataItems[0]);
+
+
+// Make stuff animate on load
+series.appear(1000, 100);
+
+}); // end am5.ready()
+</script>
+
+<!-- HTML -->
+<div id="chartdiv"></div>
