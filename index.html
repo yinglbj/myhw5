@@ -6,88 +6,133 @@
   <title>歷年來台觀光客統計資訊網</title>
   <style>
     body {
-      text-align: center;
-      font-family: Arial, sans-serif;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background: linear-gradient(to bottom, #f0f4f8, #ffffff);
       margin: 0;
       padding: 0;
-      background-color: #f9f9f9;
+      color: #333;
     }
-    iframe {
-      margin: 20px auto;
-      display: block;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    h1 {
-      font-size: 2.5em;
-      margin-top: 30px;
-      background: linear-gradient(to right, #00bcd4, #4caf50);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    header {
+  text-align: center;
+  padding: 50px 20px 30px;
+  background: white; /* 白色背景 */
+}
+
+header h1 {
+  font-size: 3em;
+  margin: 0;
+  font-weight: 700;
+  background: linear-gradient(90deg, #00c6ff, #00cc99); /* 漸層藍綠色 */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  transition: all 0.3s ease;
+}
+
+header h1:hover {
+  filter: brightness(1.2); /* 滑過去變亮 */
+}
+
+
+    section {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     }
     h2 {
-      color: #333;
-      margin-top: 40px;
+      font-size: 1.8em;
+      margin-top: 0;
+      color: #0056b3;
     }
-    p, li {
-      text-align: left;
-      max-width: 800px;
-      margin: 0 auto 1em;
-      color: #444;
-      line-height: 1.6;
+    p {
+      line-height: 1.8;
+      font-size: 1.1em;
     }
     ul {
-      list-style-position: inside;
-      padding: 0;
+      padding-left: 20px;
+      font-size: 1.05em;
+      line-height: 1.8;
+    }
+    iframe {
+      display: block;
+      margin: 30px auto;
+      width: 100%;
+      max-width: 900px;
+      height: 550px;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+      font-size: 0.9em;
+      color: #ffffff; /* 白色字 */
+      background-color: #000000; /* 黑色背景 */
+      border-top: none; /* 不要上方灰線 */
     }
     .emoji {
-      margin-right: 5px;
+      margin-right: 6px;
     }
-    .footer {
-      margin-top: 40px;
-      color: #666;
-    }
+    
   </style>
 </head>
 <body>
-  <h1>歷年來台觀光客統計資訊網(按居住地統計)</h1>
 
-  <iframe src="force.html" width="800" height="550" title="亞洲旅客來台趨勢動畫"></iframe>
+  <header>
+    <h1>歷年來台觀光客統計資訊網</h1>
+    <p>按居住地統計，掌握全球觀光趨勢</p>
+  </header>
 
-  <h2><span class="emoji">🌏</span>全球旅客來台趨勢動畫（2020–2024）</h2>
-  <p>自 2020 年 COVID-19 疫情爆發以來，全球觀光產業受到前所未有的衝擊。台灣作為亞太地區的重要旅遊目的地，各大洲旅客來台人數出現劇烈變化。</p>
-  <ul>
-    <li><strong>亞洲：</strong> 疫情前占比最大，2020–2021 年幾近歸零；自 2022 年起快速回升，2023 年恢復至疫情前七成以上。</li>
-    <li><strong>美洲：</strong> 商務與探親為主，2023 年市場逐步穩定。</li>
-    <li><strong>歐洲：</strong> 長途旅遊受限，2022 年起逐步回溫。</li>
-    <li><strong>大洋洲：</strong> 旅客數穩定，2023–2024 年有成長潛力。</li>
-    <li><strong>非洲：</strong> 整體人數少，但呈穩定微增。</li>
-  </ul>
+  <section>
+    <h2><span class="emoji">🌏</span>全球旅客來台趨勢分析（2020–2024）</h2>
+    <iframe src="force.html" title="全球旅客來台趨勢動畫"></iframe>
+    <p>自 COVID-19 疫情爆發以來，台灣觀光市場歷經巨變。各洲旅客人數出現以下趨勢：</p>
+    <ul>
+      <li><strong>亞洲：</strong> 2022 起快速回升，2023 恢復至疫情前七成以上。</li>
+      <li><strong>美洲：</strong> 商務與探親需求穩定成長。</li>
+      <li><strong>歐洲：</strong> 長途旅遊復甦緩慢，但持續上升。</li>
+      <li><strong>大洋洲：</strong> 旅客人數穩定回升。</li>
+      <li><strong>非洲：</strong> 整體人數少，但成長趨勢明確。</li>
+    </ul>
+  </section>
 
-  <iframe src="race.html" width="800" height="550" title="亞洲旅客趨勢動畫"></iframe>
+  <section>
+    <h2><span class="emoji">📊</span>亞洲主要國家來台趨勢總覽（1966–2024）</h2>
+    <iframe src="race.html" title="亞洲主要國家來台旅遊趨勢動畫"></iframe>
+    <p>各亞洲主要國家來台人數變化如下：</p>
+    <ul>
+      <li><strong>日本：</strong> 長年穩居第一，2024 年達 132 萬人次。</li>
+      <li><strong>韓國：</strong> 成長迅速，2024 年回到百萬人次規模。</li>
+      <li><strong>香港：</strong> 疫後迅速復甦，2024 年接近 120 萬人次。</li>
+      <li><strong>中國大陸：</strong> 高峰期 418 萬人，近年大幅縮減。</li>
+      <li><strong>東南亞：</strong> 越南、泰國等穩步成長。</li>
+    </ul>
+  </section>
 
-  <h2><span class="emoji">📊</span>亞洲主要國家來台旅遊趨勢總覽（1966–2024）</h2>
-  <p>自 1966 年起，台灣開始統計亞洲各國來台旅客人數。以下是各主要國家的觀光趨勢總結：</p>
-  <ul>
-    <li><strong>日本：</strong> 長年為最大來源，2019 年高峰，2024 年恢復至 132 萬人。</li>
-    <li><strong>韓國：</strong> 2000 年後成長快速，2024 年回到百萬人次。</li>
-    <li><strong>香港：</strong> 疫後迅速回升，2024 年近 120 萬人。</li>
-    <li><strong>中國大陸：</strong> 2015 年達 418 萬人，2024 年降至 43 萬人。</li>
-    <li><strong>東南亞：</strong> 越南、泰國等穩定增長，2024 年均達 20–46 萬。</li>
-  </ul>
+  <section>
+    <h2><span class="emoji">📌</span>關鍵影響事件</h2>
+    <ul>
+      <li><strong>2008 金融海嘯：</strong> 歐美旅客減少。</li>
+      <li><strong>2015–2016 中國限縮政策：</strong> 中國旅客大幅減少。</li>
+      <li><strong>2020 COVID-19 疫情：</strong> 觀光業重挫。</li>
+      <li><strong>2023 復甦元年：</strong> 亞洲市場強勢回溫。</li>
+    </ul>
+  </section>
 
-  <h2><span class="emoji">📌</span>疫情與政策影響關鍵年</h2>
-  <ul>
-    <li>2008 金融海嘯：整體旅客略下滑，歐美旅客減幅較大。</li>
-    <li>2015–2016 中國限縮：人數由 418 萬降至 291 萬，觀光結構重新調整。</li>
-    <li>2020 疫情：觀光業斷崖式衰退，2021 為近二十年最低。</li>
-    <li>2023 復甦元年：東南亞、日本、香港恢復力最強。</li>
-  </ul>
+  <section>
+    <h2><span class="emoji">✨</span>小結</h2>
+    <p>台灣觀光市場逐漸走向多元，未來將聚焦亞洲新南向國家、日韓港澳，同時積極開拓歐美深度旅遊市場。</p>
+  </section>
 
-  <h2><span class="emoji">📌</span>小結</h2>
-  <p>台灣觀光已逐步擺脫對單一來源的依賴，邁向多元穩定的亞洲布局。新南向國家與日韓港澳為重點市場，而歐美則可拓展文化深度旅遊潛力。</p>
+ <footer>
+    製作者：蔡松穎
+  </footer>
 
-  <div class="footer">
-    <p>製作者：蔡松穎</p>
-  </div>
 </body>
 </html>
